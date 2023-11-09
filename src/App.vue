@@ -1,10 +1,54 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div class="background" ref="bg"></div>
+    <router-view/>
+ 
 </template>
+
+<script>
+import bedBackground from '@/assets/bed.jpg'
+// import mitaBackground from '@/assets/mita.png'
+// import bedroomBackground from '@/assets/mitamita.png'
+ 
+
+
+
+
+export default {
+data(){
+  return{
+     whichRoute: null
+  }
+},
+watch:{
+  '$route'(){
+    console.log(this.$route)
+    this.whichRoute = this.$route.fullPath
+    console.log(this.whichRoute)
+    let bImg = this.$refs.bg
+    console.log(bImg)
+    if(this.whichRoute == '/'){ 
+        bImg.style.backgroundImage = `url(${bedBackground})`
+     }
+    else if(this.whichRoute == '/general'){
+      bImg.style.backgroundImage = `url(${bedBackground})`
+      console.log("yes")   
+
+      
+    }
+    else if(this.whichRoute == '/rooms'){
+      bImg.style.backgroundImage = `url(${bedBackground})`
+      console.log("yes")   
+
+      
+    }
+
+
+  }
+}
+}
+
+</script>
+
 
 <style>
 #app {
@@ -13,18 +57,56 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  width: 100%;
+  height: 100%;
 }
 
-nav {
-  padding: 30px;
+
+@font-face {
+  font-family: 'hbrfont' ;
+  src: url('./assets/hbrfont.ttf');
+}
+body{
+    margin: 0;
+    /* cursor:url('@/assets/herev.png'), auto ; */
+
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    font-family:'hbrfont' !important;
+    width: 100%;
+    height: 100vh;
+}
+.background{
+  /* background-image: url(`../assets/${imgsForRoutes}`); */
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    top: 0%;
+    position: fixed;
+    background-attachment: fixed;
+    background-size: cover;
+     background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.background::after{
+  content: '';
+  top: 0;
+  left: 0;
+  position: absolute;
+  background-color: rgba(0,0,0,.5) ;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+ }
+ @media (max-width: 600px){
+ .big-h1{
+  font-size: 100px !important;
+ }
+
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
