@@ -2,7 +2,7 @@
 <template>
 <!--<h1 class="big-h1"><img class="moon-img" src="../assets/moontet.png" alt="">מיתון</h1>-->
 <!-- <h1 class="big-h1">מטתון</h1>  -->
-<h1 class="big-h1">מי<img class="moon-img" src="../assets/moontet.png" alt="">תון</h1>
+<div class="big-h1">מי<img class="moon-img" src="../assets/moontet.png" alt="">תון</div>
 
      <div class="btn-flex">
       <div class="noam" >
@@ -45,17 +45,15 @@ justify-content: center;
 border: none;
 margin-top: 20px
 }
-h1{
+/* h1{
   color:rgb(255, 255, 255);
   text-align: center;
-  /* background-color:rgba(64, 143, 217,0.5) ; */
-  /* margin:0; */
-  font-size: 25vh; 
+   font-size: 25vh; 
   height: 20vh; 
   font-family: 'IBM Plex Sans Hebrew', sans-serif;
   margin-top: 13vh;
   margin-bottom: 8vh;
-}
+} */
                 
                 
                 
@@ -72,15 +70,18 @@ h5{
   margin: 0;
 }
 .big-h1{
-  font-size: 219px;
-  overflow: hidden;
-  height: 40vh;
+  font-size: 200px;
+  margin-top: 50px;
   font-family: 'IBM Plex Sans Hebrew', sans-serif;
   color: rgb(255, 255, 255);
   text-align: center;
-  
+  margin-right: 0.2em;
+  margin-left: 0.2em;
+  font-weight: 700;
+  margin-bottom: 150px;
 }
 .center-button{
+
   width:200px;
   border-radius: 20px;
   font-size: 1.8rem;
@@ -111,14 +112,16 @@ h5{
   transform: translateY(6px);
 
 }
+
 .moon-img{
-  width: 154px;
+  width: 151px;
   /* margin-top: 40px; */
   /* why does it affect the whole word and not only the */
-  height: 170px;
-  margin-bottom: 29px;
+  height: 164px;
+  margin-bottom: 24px;
   padding: 0%;
   vertical-align: bottom;
+
 }
 .center-button:active{
   box-shadow: none;
@@ -132,12 +135,10 @@ h5{
 }
 .footer-content{
   width: 100%;
-  top:30%;
-  /* bottom: 0% !important; */
-  margin-top:25vh !important;
-  text-align: center;
-  position: static;
-  /* transform: translateY(100%); */
+  position: absolute;
+   text-align: center;
+   bottom: 60px;
+   /* transform: translateY(100%); */
   color: #fff;
   font-weight:bold;
   font-family: 'IBM Plex Sans Hebrew', sans-serif;

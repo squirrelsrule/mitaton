@@ -72,7 +72,7 @@ body{
 
     padding: 0;
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
     font-family:'hbrfont' !important;
     width: 100%;
     height: 100vh;
@@ -102,9 +102,18 @@ body{
   height: 100%;
   z-index: 0;
  }
- @media (max-width: 600px){
+ @media (max-width: 735px){
  .big-h1{
-  font-size: 100px !important;
+  font-size: 130px !important;
+  margin-top: 60px;
+  padding-top:30px;
+ }
+ .moon-img{
+    width: 90px !important;
+  height: 101px !important;
+  margin-bottom: 18px !important;
+  padding: 0% !important;
+  vertical-align: bottom !important;
  }
 
 }
