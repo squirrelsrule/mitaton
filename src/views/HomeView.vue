@@ -71,14 +71,14 @@ h5{
 }
 .big-h1{
   font-size: 200px;
-  margin-top: 50px;
+  margin-top: 60px;
   font-family: 'IBM Plex Sans Hebrew', sans-serif;
   color: rgb(255, 255, 255);
   text-align: center;
   margin-right: 0.2em;
   margin-left: 0.2em;
   font-weight: 700;
-  margin-bottom: 150px;
+  margin-bottom: 120px;
 }
 .center-button{
 
@@ -126,7 +126,6 @@ h5{
 .center-button:active{
   box-shadow: none;
   transform: translateY(6px);
-
 }
 .noam{
   display: flex;
@@ -137,7 +136,7 @@ h5{
   width: 100%;
   position: absolute;
    text-align: center;
-   bottom: 60px;
+   bottom: 70px;
    /* transform: translateY(100%); */
   color: #fff;
   font-weight:bold;

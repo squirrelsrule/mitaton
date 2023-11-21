@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import bedBackground from '@/assets/bed.jpg'
+import bedBackground from '@/assets/bgrnd.jpg'
 // import mitaBackground from '@/assets/mita.png'
 // import bedroomBackground from '@/assets/mitamita.png'
  
