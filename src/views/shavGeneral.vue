@@ -1,9 +1,17 @@
 <template>
   <div class="kolel">
     <div class="topbut" >
-        <router-link to="/שלוםהמפקדת" class="center-button" >ערוך<img class="iparon-img" src="../assets/pencil-131965017493514588.png" alt=""></router-link>
+      
+     
+      <router-link to="/שלוםהמפקדת" class="center-button"  > 
+        <img class="iparon-img" src="../assets/pencil1.png" alt="">
+      </router-link>
+
       <input type="text" v-model="searchQuery" placeholder="חיפוש" class="search-bar" />
 
+      <router-link to="/" class="center-button">
+        <img class="backimg" src="../assets/back.png" alt="">
+      </router-link>
     </div>
 
 <div class="table-flex">
@@ -32,7 +40,7 @@
 
      <div class="noam" >
       <!-- <router-link to="/general" class="center-button" >שבצ״ק כללי</router-link> -->
-      <router-link to="/rooms" class="center-button" >מיטות וחדרים</router-link>
+      <router-link to="/rooms" class="bottom-button" >מיטות וחדרים</router-link>
     </div>
    
  </template>
@@ -71,10 +79,11 @@ overflow:hidden
 .noam{
  position: relative;
  top: 50px;
+ display: flex;
+ justify-content: center;
   /* left: 50%; transform: translateX(-50%); */
 }
-.center-button{
-  /* width:200px; */
+.go-back-button{
   display: flex;
   border-radius: 10px;
   font-size: 1.8rem;
@@ -94,29 +103,75 @@ overflow:hidden
   /* padding: .5em; */
   padding-right: .5em;
   padding-left: .5em;
-  margin-right:30px;
+  margin-right:8px;
   margin-left:30px;
 
-
-
 }
-.center-button:hover {
+
+.go-back-button:hover {
   /* background-color: rgb(245, 191, 220); */
   background-color: rgba(232, 236, 180, 0.517);}
-.center-button:active{
+.go-back-button:active{
   box-shadow: none;
   transform: translateY(6px);
 
 }
- .footer-content{
-  width: 100%;
-  position: absolute;
-   text-align: center;
-   bottom: 60px;
-   /* transform: translateY(100%); */
-  color: #fff;
+.center-button{
+  display: flex;
+  border-radius: 100px;
+  height: 40px;
+  font-size: 1.8rem;
+  background-color: rgba(253, 253, 253, 0.379);
+  border: none;
+  outline: none;
+  cursor: pointer !important;
+  transition: 0.5s;
+  justify-content: center ;
+  align-items: center;
+  text-align: center;
+  /* box-shadow: 0 6px 0 rgba(252, 219, 5, 0.9); */
+  color: rgb(12, 44, 55);
+  transition: .5s;
+  text-decoration: none;
   font-weight:bold;
-  font-family: 'IBM Plex Sans Hebrew', sans-serif;
+  padding-right: .5em;
+  padding-left: .5em;
+  margin-right:20px;
+  margin-left:30px;
+}
+
+.center-button:hover {
+  /* background-color: rgb(245, 191, 220); */
+  background-color: rgba(255, 255, 255, 0.517);
+  transform: translateY(2px);
+
+}
+
+.center-button:active{
+  box-shadow: none;
+  transform: translateY(2px);
+}
+.bottom-button{
+  display: flex;
+  width: 200px;
+  border-radius: 10px;
+  font-size: 1.8rem;
+  background-color: rgba(233, 238, 158, 0.844);
+  border: none;
+  outline: none;
+  cursor: pointer !important;
+  transition: 0.5s;
+  justify-content: center ;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 6px 0 rgba(252, 219, 5, 0.9);
+  color: rgb(12, 44, 55);
+  transition: .5s;
+  text-decoration: none;
+  font-weight:bold;
+  padding-right: .5em;
+  padding-left: .5em;
+
 }
 
 .iparon-img{
@@ -125,6 +180,12 @@ overflow:hidden
   padding-bottom: 0%;
   margin-bottom: 0%;
   /* justify-content: baseline; */
+}
+.backimg{
+  width: 30px;
+  height: 35px;
+  padding-bottom: 0%;
+  margin-bottom: 0%;
 }
 .table-flex{
   display: flex;
@@ -158,6 +219,7 @@ table{
   font-weight: 800;
   direction: rtl;
   width: 85vw;  
+  
 }
 td{
   width: calc(85vw/3);
@@ -179,16 +241,16 @@ th{
   margin-right: 0%;
 }
 .search-bar{
-  width: 150px;
+  width: 170px;
+  height: 30px;
   background-color: rgba(255, 255, 255, 0.5);
   margin-left: 10px;
-  /* color: rgba(252, 219, 5, 0); */
   padding: 5px;
-  border-radius: 5px;
-  border: 1px solid ;
+  border-radius: 100px;
+  /* border: 1px solid ; */
+  border: none;
   align-items: center;
   
 }
-
 
 </style>
