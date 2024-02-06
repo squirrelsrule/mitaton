@@ -1,40 +1,37 @@
 <template>
     <div>
-      <div class="table-container">
-        <table class="custom-table">
-          <thead>
-            <tr>
-              <th>Column 1</th>
-              <th>Column 2</th>
-              <!-- Add more columns as needed -->
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Your table rows go here -->
-            <tr v-for="(item, index) in items" :key="index">
-              <td>{{ item.column1 }}</td>
-              <td>{{ item.column2 }}</td>
-              <!-- Add more cells as needed -->
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <input type="file" ref="file" name="file" @change="handleFileUpload($event)" />
+
     </div>
   </template>
   
   <script>
-  export default {
-    data() {
-      return {
-        // Your data goes here, e.g., items for table rows
-        items: [
-          { column1: 'Data 1', column2: 'Data 2' },
-          // Add more items as needed
-        ],
+import * as XLSX from 'xlsx';
+
+export default ({
+  methods: {
+    handleFileUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        const data = new Uint8Array(e.target.result);
+        const workbook = XLSX.read(data, { type: 'array' });
+        const sheetName = workbook.SheetNames[0];
+        const sheet = workbook.Sheets[sheetName];
+        const jsonData = XLSX.utils.sheet_to_json(sheet);
+
+        // Do something with the JSON data
+        console.log(jsonData);
       };
-    },
-  };
-  </script>
+
+      reader.readAsArrayBuffer(file);
+    }
+  }
+});
+   </script>
   
   <style scoped>
   .table-container {

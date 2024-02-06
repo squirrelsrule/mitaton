@@ -6,7 +6,7 @@
 
 <script>
 import bedBackground from '@/assets/bed.jpg'
-// import mitaBackground from '@/assets/mita.png'
+import mitaBackground from '@/assets/HaKirya.jpg'
 // import bedroomBackground from '@/assets/mitamita.png'
  
 
@@ -36,13 +36,17 @@ watch:{
       
     }
     else if(this.whichRoute == '/rooms'){
-      bImg.style.backgroundImage = `url(${bedBackground})`
+      bImg.style.backgroundImage = `url(${mitaBackground})`
       console.log("yes")   
 
       
     }
+    else if(this.whichRoute == '/שלוםהמפקדת'){
+      bImg.style.backgroundImage = `url(${mitaBackground})`
+      console.log("yes")   
 
-
+      
+    }
   }
 }
 }
@@ -56,7 +60,7 @@ watch:{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #273747;
   width: 100%;
   height: 100%;
 }
