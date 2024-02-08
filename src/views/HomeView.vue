@@ -1,30 +1,83 @@
 
 <template>
+  <div class="kolel">
+    <div class="info">
+      <button @click="showAlert" class="info-button" @mouseover="showInfoTip=true" @mouseleave="showInfoTip=false"  ><img class="info-img" src="../assets/info.png" alt=""> </button>
+
+  </div>
 <!--<h1 class="big-h1"><img class="moon-img" src="../assets/moontet.png" alt="">מיתון</h1>-->
 <!-- <h1 class="big-h1">מטתון</h1>  -->
 <div class="big-h1">מי<img class="moon-img" src="../assets/moontet.png" alt="">תון</div>
 
      <div class="btn-flex">
       <div class="noam" >
-          <router-link to="/general" class="center-button" >שבצ״ק כללי</router-link>
-          <router-link to="/rooms" class="center-button" >מיטות וחדרים</router-link>
+          <router-link to="/general" class="center-button" @mouseover="showGeneralTip=true" @mouseleave="showGeneralTip=false"  > שבצ״ק כללי</router-link>
+          <router-link to="/rooms" class="center-button"  @mouseover="showRoomTip=true" @mouseleave="showRoomTip=false">מיטות וחדרים</router-link>
+
       </div>
     </div>
-
-    <div class="footer-content">
-      פותח על ידי לרה ג׳
+    <div class="tltp1"  v-if="showGeneralTip">
+      <span class="tooltiptext"> טבלת השבצ״ק הכללי </span>
     </div>
+    <div class="tltp3"  v-if="showInfoTip">
+      <span class="tooltiptext"> מידע נוסף </span>
+    </div>
+    <div class="tltp2"  v-if="showRoomTip">
+      <span class="tooltiptext"> טבלת השבצ״קים לפי מקומות לינה </span>
+    </div>
+
+    <div class="footer-content" >
+      פותח על ידי לרה ג׳
+
+    </div>
+  </div>
  </template>
 
 
 
 <script>
-// import moon from '../assets/moon.png'
+
+import Swal from 'sweetalert2';
+
+ 
 export default {
   name: 'YourComponentName',
+ 
   data(){
     return{
+      showGeneralTip:false,
+      showRoomTip:false,
+      showInfoTip:false
 
+    }
+  },
+  
+  methods: {
+    showAlert() {
+      Swal.fire({
+   
+        title: "אתר המיטתון",
+        width: 600,
+        padding: "3em",
+        color: "rgb(255,255)",
+        html: `
+        האתר הזה פותח ע״י צוות אפליקציות בגדוד 383,
+    ניתן לקרוא עלינו
+    <a href="#">כאן</a>
+    
+  `,
+  // showCancelButton: true,
+  // cancelButtonText: `
+  //   <i class="fa fa-thumbs-up"></i>  `,
+
+        background: "#fff url(../assets/stars.gif)",
+        backdrop: `
+        rgba(252, 219, 5, 0.2)
+          url("../assets/stars.gif")
+          left top
+          no-repeat
+        `
+      });
     }
   },
   mounted(){
@@ -33,7 +86,19 @@ export default {
 </script>
 
 <style scoped>
-
+.kolel{
+  height: 100%;
+}
+.info-img{
+  width: 30px;
+  height: 30px;
+}
+.info-button{
+  margin-top: 20px;
+  background: none;
+  border: none;
+  margin-left: 30px !important; 
+}
 .btn-flex{
  /* padding: 10px 20em;
 border: none;
@@ -66,12 +131,10 @@ p{
   /* padding: 0%; */ 
   /* color: #fff;
 } */
-h5{
-  margin: 0;
-}
+
 .big-h1{
   font-size: 200px;
-  margin-top: 50px;
+  /* margin-top: 50px; */
   font-family: 'IBM Plex Sans Hebrew', sans-serif;
   color: rgb(255, 255, 255);
   text-align: center;
@@ -79,6 +142,12 @@ h5{
   margin-left: 0.2em;
   font-weight: 700;
   margin-bottom: 150px;
+  
+}
+.info{
+width: 100%;
+display: flex;
+align-items: end;
 }
 .center-button{
 
@@ -99,12 +168,11 @@ h5{
   text-decoration: none;
   font-weight:bold;
   padding: .5em;
+  position: relative;
 
 }
   .center-button:hover {
-  /* background-color: rgb(245, 191, 220); */
   background-color: rgba(232, 236, 180, 0.517);
-  /* cursor: url('../assets/moon.png'), auto !important; */
 
 
   color: #000000;
@@ -113,6 +181,30 @@ h5{
 
 }
 
+.tooltiptext{
+  background-color: #807f7f7c;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  transition: 2s ease-in-out ;
+  
+}
+.tltp1{
+  margin-top: 20px;
+  margin-right: 460px;
+
+}
+.tltp2{
+  margin-top: 20px;
+  margin-left: 460px;
+
+}
+.tltp3{
+  margin-top: -450px;
+  display: flex;
+  margin-left: 10px;
+
+}
 .moon-img{
   width: 151px;
   /* margin-top: 40px; */
@@ -123,11 +215,11 @@ h5{
   vertical-align: bottom;
 
 }
-.center-button:active{
+/* .center-button:active{
   box-shadow: none;
   transform: translateY(6px);
 
-}
+} */
 .noam{
   display: flex;
   width: 500px;
@@ -135,9 +227,9 @@ h5{
 }
 .footer-content{
   width: 100%;
-  position: absolute;
+  position: fixed;
    text-align: center;
-   bottom: 60px;
+   bottom: 30px;
    /* transform: translateY(100%); */
   color: #fff;
   font-weight:bold;

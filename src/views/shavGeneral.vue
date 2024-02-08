@@ -237,7 +237,7 @@ table{
   direction: rtl;
   width: 55vw;  
   border-radius: 25px;
- overflow: visible;
+  overflow: visible;
 }
 td{
   width: calc(50vw/3);

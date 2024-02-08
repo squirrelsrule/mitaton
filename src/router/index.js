@@ -3,6 +3,10 @@ import HomeView from '../views/HomeView.vue'
 import bedRooms from '../views/bedRooms.vue'
 import shavGeneral from '../views/shavGeneral.vue'
 import shaniDalal from '../views/shaniDalal.vue'
+import binyatsTable from '../views/binyatsTable.vue'
+import migurimTable from '../views/migurimTable.vue'
+import marganiTable from '../views/marganiTable.vue'
+
 
 const routes = [
   {
@@ -24,6 +28,21 @@ const routes = [
     path: '/שלוםהמפקדת',
     name: 'shaniDalal',
     component: shaniDalal
+  },
+  {
+    path: '/binyatstable',
+    name: 'binyatsTable',
+    component: binyatsTable
+  },
+  {
+    path: '/migurimtable',
+    name: 'migurimTable',
+    component: migurimTable
+  },
+  {
+    path: '/marganitable',
+    name: 'marganiTable',
+    component: marganiTable
   },
   
 ]

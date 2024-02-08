@@ -3,32 +3,36 @@
   <div class="kolel">
     <div class="topbut" >
       
-      <div class="tooltip-wrapper">
         <router-link to="/שלוםהמפקדת" class="center-button">
-          <img class="iparon-img" src="../assets/pencil1.png" alt="">
+          <img class="iparon-img" src="../assets/pencil1.png" alt="" @mouseover="showGeneralTip=true"  @mouseleave="showGeneralTip=false" >
         </router-link>
-         edit
-        <div class="tooltip-text">שלום המפקדת</div>
-      </div>
+       
+      
 
       <input type="text" v-model="searchQuery" placeholder="חיפוש" class="search-bar" />
 
       <router-link to="/" class="center-button">
-        <img class="backimg" src="../assets/homebut.png" alt="">
+        <img class="backimg" src="../assets/homebut.png" alt="" @mouseover="showRoomTip=true" @mouseleave="showRoomTip=false">
       </router-link>
     </div>
+    <div class="tltp1"  v-if="showGeneralTip">
+      <span class="tooltiptext"> עריכה</span>
+    </div>
+    <div class="tltp2"  v-if="showRoomTip">
+      <span class="tooltiptext"> חזרה לדף בית </span>
+    </div>
   <div class="binats">
-    <router-link to="/שלוםהמפקדת" class="binats-button"  > 
+    <router-link to="/binyatstable" class="binats-button"  > 
         <img class="binats-img" src="../assets/kiriya.png" alt="">
       </router-link>
   </div>
   <div class="marganit">
-    <router-link to="/שלוםהמפקדת" class="marganit-button"  > 
+    <router-link to="/marganitable" class="marganit-button"  > 
         <img class="marganit-img" src="../assets/marganit.png" alt="">
       </router-link>
   </div>
   <div class="migurim">
-    <router-link to="/שלוםהמפקדת" class="migurim-button"  > 
+    <router-link to="/migurimtable" class="migurim-button"  > 
         <img class="migurim-img" src="../assets/migurim.png" alt="">
       </router-link>
   </div>
@@ -41,12 +45,21 @@
 
 </template>
 
+
 <script>
 export default {
+  name: 'YourComponentName',
+  data(){
+    return{
+      showGeneralTip:false,
+      showRoomTip:false
 
-}
+    }
+  },
+  mounted(){
+   }
+};
 </script>
-
 <style scoped>
  /* .bgrnd{
    background-image: url("../assets/mita.png");    
@@ -75,7 +88,31 @@ width: 100%;
 
 .topbut { 
   grid-area: 1 / 3 / 2 / 6;
+  margin-left: 20%;
   height: 100px!;
+}
+.tooltiptext{
+  background-color: #807f7f7c;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  
+}
+.tltp1{
+  top: 0px;
+  position: relative;
+  left: 500px;
+  z-index: 2px;
+  transition: 2s ease-in-out ;
+
+}
+.tltp2{
+  top: 0px;
+  position: relative;
+
+  margin-left: 0px;
+  /* z-index: 2px; */
+
 }
 .binats { 
   grid-area: 1 / 1 / 7 / 3; 
@@ -142,6 +179,7 @@ transform: translatey(-4px);
   position: relative;
  justify-content: center;
  display: flex;
+ margin-left: 20%;
 }
 .go-back-button{
   display: flex;
@@ -285,4 +323,4 @@ transform: translateY(3px);
   border: none;
   align-items: center;
 }
-</style>ß
+</style>

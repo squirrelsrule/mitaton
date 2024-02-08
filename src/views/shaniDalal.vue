@@ -1,6 +1,6 @@
 <template>
-    <div>
-      <input type="file" ref="file" name="file" @change="handleFileUpload($event)" />
+    <div class="file-div">
+      <input type="file" class="inputFile" ref="file" name="file" @change="handleFileUpload($event)" />
 
     </div>
   </template>
@@ -23,7 +23,6 @@ export default ({
         const sheet = workbook.Sheets[sheetName];
         const jsonData = XLSX.utils.sheet_to_json(sheet);
 
-        // Do something with the JSON data
         console.log(jsonData);
       };
 
@@ -34,6 +33,13 @@ export default ({
    </script>
   
   <style scoped>
+  .inputFile{
+    border-radius: 100px;
+    background-color: #c8c7c781;
+  }
+  .file-div{
+    margin-top: 40pxx;
+  }
   .table-container {
     max-height: 50px; /* Set max-height as needed */
     overflow-y: auto;

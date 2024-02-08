@@ -1,7 +1,8 @@
 <template>
+  <div class="kolel">
   <div class="background" ref="bg"></div>
     <router-view/>
- 
+  </div>
 </template>
 
 <script>
@@ -80,6 +81,10 @@ body{
     font-family:'hbrfont' !important;
     width: 100%;
     height: 100vh;
+}
+.kolel{
+  width: 100%;
+  height: 100%;
 }
 .background{
   /* background-image: url(`../assets/${imgsForRoutes}`); */
